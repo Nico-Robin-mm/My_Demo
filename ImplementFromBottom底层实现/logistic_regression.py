@@ -16,10 +16,10 @@ class logistic_regression:
         self.intercept_ = None
         self.coef_ = None
             
-    def _sigmoid(z):
+    def _sigmoid(self, z):
         return 1. / (1. + np.exp(-z))
     
-    def fit(X_train, y_train, n_iters=1e4, lr=0.01, epsilon=1e-18):
+    def fit(self, X_train, y_train, n_iters=1e4, lr=0.01, epsilon=1e-18):
         
         def J(theta, X_b, y):
             y_hat = self._sigmoid(X_b.dot(theta))
@@ -43,7 +43,7 @@ class logistic_regression:
                 
         X_b = np.hstack([np.ones(shape=(len(X_train), 1)), X_train])
         initial_theta = np.zeros(shape=X_b.shape[1])
-        self._theta = gradient_descent(X_b, y_train, n_iters, lr, epsilon)
+        self._theta = gradient_descent(X_b, y_train, initial_theta, n_iters, lr, epsilon)
         self.intercept_ = self._theta[0]
         self.coef_ = self._theta[1:]
         return self 
