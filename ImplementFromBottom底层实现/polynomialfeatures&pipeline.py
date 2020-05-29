@@ -7,7 +7,6 @@ Created on Fri May 29 22:25:59 2020
 
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 x = np.random.uniform(-3, 3, size=100)
