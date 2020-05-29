@@ -22,7 +22,7 @@ class logistic_regression:
     def fit(X_train, y_train, n_iters=1e4, lr=0.01, epsilon=1e-18):
         
         def J(theta, X_b, y):
-            y_hat = self._sigmoid(X.dot(theta))
+            y_hat = self._sigmoid(X_b.dot(theta))
             try:
                 return -np.sum(y * np.log(y_hat) + (1 - y) * np.log(1 - y_hat)) / len(y)
             except:
@@ -36,7 +36,7 @@ class logistic_regression:
             last_theta = theta 
             i_iter = 0
             while i_iter < n_iters:
-                theta = theta - lr * dJ(theta, X_b,, y)
+                theta = theta - lr * dJ(theta, X_b, y)
                 if abs(J(last_theta, X_b, y) - J(theta, X_b, y)) < epsilon:
                     break
             return theta
