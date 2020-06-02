@@ -10,7 +10,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.utils.data as data
+from torch.utils.data import Dataset, DataLoader
 import matplotlib.pyplot as plt
 
 
@@ -45,7 +45,7 @@ plt.show()
 
 """
 
-class TensorDataset(data.Dataset):
+class TensorDataset(Dataset):
     def __init__(self, data_tensor, target_tensor):
         assert data_tensor.size(0) == target_tensor.size(0), \
             "data_tensor and target_tensor must be equal in size"
@@ -61,7 +61,7 @@ class TensorDataset(data.Dataset):
 
 BATCH_SIZE = 20
 DATASET = TensorDataset(X, y)
-dataloader = data.DataLoader(dataset=DATASET, batch_size=BATCH_SIZE, shuffle=True)
+dataloader = DataLoader(dataset=DATASET, batch_size=BATCH_SIZE, shuffle=True)
 
 
 class LogisticRegression(nn.Module):
