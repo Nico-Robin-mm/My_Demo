@@ -96,41 +96,6 @@ if __name__ == "__main__":
                 accuracy = float((pred_y == test_y.numpy()).astype(int).sum()) / float(test_y.size(0))
                 print("Epoch:", epoch, "| train loss: %.4f"%loss.item(), "| test accuracy: %.2f"%accuracy)
     test_output2 = cnn(test_X[:10])
-    pred_y2 = torch.max(F.softmax(test_output), 1)[1].detach().numpy()[:10]
+    pred_y2 = torch.max(F.softmax(test_output, 1), 1)[1].detach().numpy()[:10]
     print(pred_y2, "predict numbers")
     print(test_y[:10].numpy(), "real numbers")
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
