@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed May 20 17:28:36 2020
-
-@author: 木木
-"""
-
-
 import pandas as pd
 import scipy.stats.stats as stats
 from sklearn import tree
